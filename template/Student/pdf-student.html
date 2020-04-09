@@ -1,0 +1,144 @@
+{% load static from staticfiles %}
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+</head>
+<div id="loading">
+        <div id="loader"><img src={% static 'img/loader/book.gif' %} /></div>
+</div>
+<body  >
+    <div class="row">
+    <h1>Quaid e Azam Fellow Ship School</h1>
+    <h3>Ex-159</h3>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="basic-login-inner modal-basic-inner">
+
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">           
+                    <div class="course-des">
+                    <br>
+                            <legend><span style="background: #1abc9c;color: #fff;height: 30px;width: 30px;display: inline-block;font-size: 0.8em;margin-right: 4px;line-height: 30px;text-align: center;border-bottom: 0px;text-shadow: 0 1px 0 rgba(255,255,255,0.2);border-radius: 15px 15px 15px 0px;">1</span> Personal Detail</legend>
+                        <p><span><i class="fa fa-user"></i></span> <b>Student Name :</b>  {{name}}</p>
+                        <hr>
+                        <p><span><i class="fa fa-user-circle"></i></span> <b>Father Name :</b>  {{f_Name}}</p>
+                        <hr>
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <p><span><i class="fa fa-id-card"></i></span> <b>CNIC# :</b>  {{cnic}}</p>
+                                <hr>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <p><span><i class="fa fa-calendar-alt"></i></span> <b>Date of Birth :</b>  {{dob}}</p>
+                                <hr>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <p><span><i class="fas fa-user-shield"></i></span> <b>Gender :</b>  {{gender}}</p>
+                                <hr>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <p><span><i class="fas fa-mosque"></i></span> <b>Religion :</b>  {{religion}}</p>
+                                <hr>  
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <p><span><i class="fas fa-user-shield"></i></span> <b>Age :</b>  {{age}}</p>
+                                <hr>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <p><span><i class="fas fa-award"></i></span> <b>GR# :</b>  {{gr}}</p>
+                                <hr>  
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <div class="courses-title">
+                        {% if image.url != None %}
+                        <a href="#"><img src="{{image.url}}" alt=""></a>
+                        {% else %}
+                        <a href="#"><img src="{% static 'img/profile/profile.png' %}" alt=""  style="width:220px;height:150px;"></a>
+                        {% endif %}  
+                    </div> 
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">           
+                    <div class="course-des">
+                        <br>
+                            <legend><span style="background: #1abc9c;color: #fff;height: 30px;width: 30px;display: inline-block;font-size: 0.8em;margin-right: 4px;line-height: 30px;text-align: center;border-bottom: 0px;text-shadow: 0 1px 0 rgba(255,255,255,0.2);border-radius: 15px 15px 15px 0px;">2</span> Contact Detail</legend>
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <p><span><i class="fa fa-phone-square"></i></span> <b>Contact#1 :</b>  {{contact1}}</p>
+                                <hr>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                {% if contact2 != None %}
+                                <p><span><i class="fa fa-phone-square"></i></span> <b>Contact#2 :</b>  {{contact2}}</p>
+                                <hr>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <p><span><i class="fa fa-address-card"></i></span> <b>Address :</b>  {{address}}</p>
+                        <hr>
+                        
+                        <br>
+                            <legend><span style="background: #1abc9c;color: #fff;height: 30px;width: 30px;display: inline-block;font-size: 0.8em;margin-right: 4px;line-height: 30px;text-align: center;border-bottom: 0px;text-shadow: 0 1px 0 rgba(255,255,255,0.2);border-radius: 15px 15px 15px 0px;">3</span> Educational Detail</legend>
+                        
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <p><span><i class="fa fa-book-reader"></i></span> <b>Last School Name :</b> {{last_school}}</p>
+                                <hr>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <p><span><i class="fa fa-calendar-alt"></i></span> <b>Admission Date :</b> {{admit_date}}</p>
+                                <hr>  
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <p><span><i class="fa fa-window-maximize"></i></span> <b>Current Class :</b> {{current_class}} - {{section}} </p>
+                                <hr>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <p><span><i class="fa fa-window-superpowers"></i></span> <b>Status :</b> {{status}} </p>
+                                <hr>  
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <p><span><i class="fa fa-star-half-alt"></i></span> <b>Shift :</b> {{shift}}</p>
+                                <hr>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <p><span><i class="fa fa-window-maximize"></i></span> <b>Admission Class :</b> {{admit_class}}</p>
+                                <hr>  
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                
+            
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright-area">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="footer-copy-right">
+                        <p>Copyright © 2019. All rights reserved. Template by <a href="https://colorlib.com/wp/templates/">GuruDev</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    
+</body>
+
+</html>

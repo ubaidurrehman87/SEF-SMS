@@ -1,0 +1,81 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static from staticfiles %}
+            <!-- Mobile Menu end -->
+            <div class="breadcome-area">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="breadcome-list single-page-breadcome">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                        <div class="breadcome-heading">
+                                            <form role="search" class="sr-input-func">
+                                                <input type="text" placeholder="Search..." class="search-int form-control">
+                                                <a href="#"><i class="fa fa-search"></i></a>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                        <ul class="breadcome-menu">
+                                            <li><a href="#">Home</a> <span class="bread-slash">/</span>
+                                            </li>
+                                            <li><span class="bread-blod">Export Expenses</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+        <div class="product-status mg-b-15">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="product-status-wrap drp-lst">
+                            <h4>All Salary Detail</h4>
+                            <div class="add-product">
+                                <a href="{% url 'add-salary' user.username %}">Add Salary Detail</a>
+                            </div>
+                        
+                            <div class="asset-inner">
+                                <table id="table" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="true" data-show-pagination-switch="true" data-show-refresh="true" data-key-events="true" data-show-toggle="true" data-resizable="true" data-cookie="true"
+                                    data-cookie-id-table="saveId" data-show-export="true" data-click-to-select="true" data-toolbar="#toolbar">
+                                    <thead>
+                                        <tr style="background: fuchsia;">
+                                            <th style="text-align : center;">Expense Amount</th>
+                                            <th style="text-align : center;">Month of Expense</th>
+                                            <th style="text-align : center;">Date</th>
+                                            <th style="text-align : center;">Description</th>
+                                            <th style="text-align : center;">Setting</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for exp in expenses %}
+                                    <tr>
+                                        <td style="text-align : center;">{{exp.exp_amount}}</td>
+                                        <td style="text-align : center;">{{exp.exp_mon}}</td>
+                                        <td style="text-align : center;">{{exp.date}}</td>
+                                        <td style="text-align : center;">{{exp.exp_description}}</td>
+                                        <td>
+                                            <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                                            <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endblock %}

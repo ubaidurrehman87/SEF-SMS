@@ -1,0 +1,139 @@
+{% load static from staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Registration SEF_SMS</title>
+    <!-- favicon
+		============================================ -->
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/logo/logo-2.png' %}">
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="{% static 'authentication/fonts/material-icon/css/material-design-iconic-font.min.css' %}">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="{% static 'authentication/css/style.css' %}">
+
+    <!-- alerts CSS
+		============================================ -->
+    <link rel="stylesheet" href="{% static 'css/alerts.css' %}"> 
+    
+</head>
+<body background="{% static 'authentication/images/email-pattern/email-pattern.png' %}">
+    
+        
+        <!-- Sign up form -->
+        <section class="signup" style="margin-bottom: 50px;">
+            <div class="container">
+                <div class="signup-content" style="margin-top: 50px;">
+                    <div class="signup-form" >
+                        {% for message in messages %}
+                            <div class="row">
+                                <div class="col-lg-5 col-md-5 col-sm-5 col-col-xs-12">
+                                    {% if message.tags == 'success' %}
+                                    <div class="alert alert-success alert-success-style1 alert-st-bg">
+                                        <button type="button" class="close sucess-op" data-dismiss="alert" aria-label="Close">
+                                                <span class="icon-sc-cl" aria-hidden="true">&times;</span>
+                                            </button>
+                                        <i class="fa fa-check edu-checked-pro admin-check-pro admin-check-pro-clr" aria-hidden="true"></i>
+                                        <p style="font-variant: petite-caps;"><strong >Successfully! </strong>  {{message}}</p>
+                                    </div>
+                                    {% elif message.tags == 'error' %}
+                                    <div class="alert alert-danger alert-mg-b alert-success-style4 alert-st-bg3">
+                                        <button type="button" class="close sucess-op" data-dismiss="alert" aria-label="Close">
+                                                <span class="icon-sc-cl" aria-hidden="true">&times;</span>
+                                            </button>
+                                        <i class="fa fa-times edu-danger-error admin-check-pro admin-check-pro-clr3" aria-hidden="true"></i>
+                                        <p style="font-variant: petite-caps;"><strong>{{message}} </strong> </p>
+                                    </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        {% endfor %}
+                        <h2 class="form-title">Sign up</h2>
+                        <form method="POST" class="register-form add-user" id="register-form" action="register" enctype="multipart/form-data">
+                         {% csrf_token %}
+                            <div class="form-group">
+                                <label for="first name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input type="text" name="first_name" id="name" placeholder="First Name" required/>
+                            </div>
+                            <div class="form-group">
+                                <label for="last name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input type="text" name="last_name" id="name" placeholder="Last Name" required/>
+                            </div>
+                            <div class="form-group">
+                                <label for="email"><i class="zmdi zmdi-email"></i></label>
+                                <input type="email" name="email" id="email" placeholder="Your Email"required/>
+                            </div>
+                            <div class="form-group">
+                                <label for="user name"><i class="zmdi zmdi-account-circle material-icons-name"></i></label>
+                                <input type="text" name="username" id="name" placeholder="User Name" required/>
+                            </div>
+                            <div class="form-group">
+                                <label for="school name"><i class="zmdi zmdi-home material-icons-name"></i></label>
+                                <input type="text" name="school_name" id="name" placeholder="School Name"required/>
+                            </div>
+                            <div class="form-group">
+                                <label for="school code"><i class="zmdi zmdi-assignment material-icons-name"></i></label>
+                                <input type="text" name="school_code" id="name" placeholder="School Code"required/>
+                            </div>
+                            <div class="form-group">
+                                <label for="school category"><i class="zmdi zmdi-widgets material-icons-name"></i></label>
+                                <input type="text" name="school_category" id="name" placeholder="School Category"required/>
+                            </div>
+                            <div class="form-group">
+                                <label for="pass"><i class="zmdi zmdi-lock"></i></label>
+                                <input type="password" name="password" id="pass" placeholder="Password"required/>
+                            </div>
+                           
+                            <div class="form-group">
+                                <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
+                                <input type="password" name="re_password" id="re_pass" placeholder="Repeat password" required/>
+                            </div>
+
+                            
+                            <div class="form-group">
+                                <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" required/>
+                                <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
+                            </div>
+                            <p> Already Have an Acoount
+                            <a href="login" style="font-family: initial;"> Log in.</a></p> 
+                            <div class="form-group form-button">
+                                <input type="submit" name="signup" id="signup" class="form-submit" value="Register" required/>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="signup-image">
+                        <figure><img src="{% static 'authentication/images/registration/1.jpg' %}" alt="sing up image" style="height: 600px"></figure>
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+
+   
+
+    <!-- JS -->
+    <script>
+    function buttonspin(){
+        var id=document.getElementByID('spinbutton');
+        id.setAttribute('class' , 'zmdi zmdi-rotate-right zmdi-hc-spin' )
+        id.classList.add('zmdi-hc-spin');
+    }
+
+    </script>
+    <script src="{% static 'authentication/vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'authentication/js/main.js' %}"></script>
+    <script src="{% static 'authentication/js/form-validation.js' %}"></script>
+    
+     <!-- pwstrength JS
+		============================================ -->
+    <script src="{% static 'js/password-meter/pwstrength-bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/password-meter/zxcvbn.js' %}"></script>
+    <script src="{% static 'js/password-meter/password-meter-active.js' %}"></script>
+</body>
+</html>

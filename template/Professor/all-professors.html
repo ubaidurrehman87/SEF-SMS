@@ -1,0 +1,269 @@
+
+{% extends 'base.html' %}
+{% load humanize %}
+{% block content %}
+{% load static from staticfiles %}
+            <!-- Mobile Menu end -->
+            <div class="breadcome-area">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="breadcome-list single-page-breadcome">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                        <div class="breadcome-heading">
+                                            <form role="search" method="POST" action="{% url 'search-professor' %}" class="sr-input-func">
+                                                {% csrf_token %}
+                                                <input type="text" name="search" placeholder="Search..." class="search-int form-control">
+                                                <a><i class="fa fa-search"></i></a>
+                                                
+                                            </form>
+                                        </div>
+                                    </div> 
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                        <ul class="breadcome-menu">
+                                            <li><a href="#">Home</a> <span class="bread-slash">/</span>
+                                            </li>
+                                            <li><span class="bread-blod">All Teachers</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Static Table Start -->
+        
+        <div class="data-table-area mg-b-15">
+            <div class="container-fluid">
+            {% if no_result == 'No Result Found' %}
+            <img src="{% static 'img/others/no_result.gif' %}" style="min-inline-size: -webkit-fill-available;" class="img-fluid" alt="">
+            {% else %}
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        
+                        <div class="sparkline13-list">
+                            <div class="sparkline13-hd">
+                                <div class="main-sparkline13-hd">
+                                    <h1>All <span class="table-project-n">Teachers</span></h1>
+                                </div>
+                            </div>
+                            <div class="add-product">
+                                <a href="{% url 'add-professor' user.username %}">Add Teacher</a>
+                            </div>
+                            
+                            <button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span> Upload CSV FILE</button>
+                            
+                            {% for message in messages %}
+                            <div class="row">
+                                <div class="col-lg-5 col-md-5 col-sm-5 col-col-xs-12">
+                                    {% if message.tags == 'success' %}
+                                    <div class="alert alert-success alert-success-style1 alert-st-bg">
+                                        <button type="button" class="close sucess-op" data-dismiss="alert" aria-label="Close">
+                                                <span class="icon-sc-cl" aria-hidden="true">&times;</span>
+                                            </button>
+                                        <i class="fa fa-check edu-checked-pro admin-check-pro admin-check-pro-clr" aria-hidden="true" ></i>
+                                        <p><strong>Successfully! </strong>  {{message}}</p>
+                                    </div>
+                                    {% elif message.tags == 'error' %}
+                                    <div class="alert alert-danger alert-mg-b alert-success-style4 alert-st-bg3">
+                                        <button type="button" class="close sucess-op" data-dismiss="alert" aria-label="Close">
+                                                <span class="icon-sc-cl" aria-hidden="true">&times;</span>
+                                            </button>
+                                        <i class="fa fa-times edu-danger-error admin-check-pro admin-check-pro-clr3" aria-hidden="true" ></i>
+                                        <p><strong>Unsuccessfully! </strong> {{message}}</p>
+                                    </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+            </div>
+        </div>
+                            <!--==========================
+                            Portfolio Section
+                            ============================-->
+                            <section id="portfolio"  class="section-bg" >
+                            <div class="container">
+                                <div class="row portfolio-container">
+                                {% for stud in professor %}
+                                <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp" style="height: 400px;">
+                                    <div class="portfolio-wrap" style="height: 370px;">
+                                    <figure>
+                                        {% if stud.image != None %}
+                                        <img src="{{stud.image.url}}" class="img-fluid" alt="">
+                                        {% else %}
+                                        <img src="{% static 'img/profile/profile.png' %}" class="img-fluid" alt="">
+                                        {% endif %}
+                                        <a href="{% url 'delete-professor' stud.id %}"  class="link-preview" title="Delete Profile"><i class="fa fa-trash"></i></a>
+                                        <a href="{% url 'edit-professor' stud.id %}" class="link-details" title="Edit Detail"><i class="fa fa-edit"></i></a>
+                                        
+                                    </figure>
+
+                                    <div class="portfolio-info">
+                                        <h4><a href="{% url 'professor-profile' stud.id %}"><i class="ion ion-ios-contact"></i> {{stud.name}} {{stud.f_Name}}</a></h4>
+                                        <div class="row">
+                                            <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
+                                                <h6><i class="ion ion-email"></i><a href="mailto:{{stud.email}}"> {{stud.email}} </a></h6>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
+                                                <h6><i class="ion ion-social-whatsapp"></i><a href="tel:{{stud.contact1}}"> {{stud.contact1}}</a></h6>
+                                            </div>
+                                        </div>
+                                    
+                                        
+                                        
+                                    </div>
+                                    
+                                    </div>
+                                </div>
+                                {% endfor %}
+
+                                </div>
+
+                            </div>
+                            </section><!-- #portfolio -->
+                            
+                        
+
+                        <!--    <div class="sparkline13-graph">
+                                <div class="datatable-dashv1-list custom-datatable-overright">
+                                <div class="row">
+                                <div class="product-status-wrap">     
+                                        <div class="add-product">
+                                            <a href="{% url 'add-professor' user.username %}">Add Teacher</a>  
+                                        </div>
+                                        <div class="add-product">
+                                            <button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span> Upload CSV FILE</button>
+                                        </div>
+                                    <div class="asset-inner">
+                                    <table id="table" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="true" data-show-pagination-switch="true" data-show-refresh="true" data-key-events="true" data-show-toggle="true" data-resizable="true" data-cookie="true"
+                                        data-cookie-id-table="saveId" data-show-export="true" data-click-to-select="true" data-toolbar="#toolbar">
+                                        <thead style="background: #006df0;">
+                                            <tr class="filters">
+                                                <th  data-field="state" data-checkbox="true"></th>
+                                                
+                                                <th  data-field="name" data-editable="true">Name</th>
+                                                <th  data-field="id" data-editable="true">Father/Husband Name</th>
+                                                <th  data-field="email" data-editable="true">Email</th>
+                                                
+                                                <th  data-field="phone" data-editable="true">Contact #</th>
+                                                <th  data-field="task" data-editable="true">Class</th>
+                                                <th  data-field="date" data-editable="true">Date of Joining</th>
+                                                <th  >Experience</thtype="text">
+                                                <th  data-field="price" data-editable="true">Education Level</th>
+                                                <th >Status</th>
+                                                <th  data-field="action">Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for stud in professor %}
+                                            {% if stud.user_id == user.username %}
+                                            <tr>
+                                                <td></td>
+                                                
+                                                
+                                                <td>{{stud.name}}</td>
+                                                <td>{{stud.f_Name}}</td>
+                                                <td>{{stud.email}}</td>
+                                                <td>{{stud.contact1}}</td>
+                                                <td>{{stud.current_class | ordinal}}</td>
+                                                <td>{{stud.joining_date}}</td>
+                                                <td>{{stud.experience}}</td>
+                                                <td>{{stud.education_level}}</td>
+                                                <td>
+                                                    {% if stud.status == 'retained' %}
+                                                    <button class="pd-setting">Retained</button>
+                                                    {% elif stud.status == 'on_leave' %}
+                                                    <button class="ps-setting">On Leave</button>
+                                                    {% elif stud.status == 'left' %}
+                                                    <button class="ds-setting">Left</button>
+                                                    {% endif %}
+                                                </td>
+                                                
+                                                <td >
+                                                    <a href="{% url 'edit-professor' stud.id %}"> <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button> </a>
+                                                    <a href="{% url 'professor-profile' stud.id %}"> <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-eye" aria-hidden="true"></i></button> </a>
+                                                    <a class="Warning Warning-color mg-b-10" href="#" data-toggle="modal" data-target="#WarningModalalert"><button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button> </a>
+                                                    <div id="WarningModalalert" class="modal modal-edu-general Customwidth-popup-WarningModal fade" role="dialog">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                                <div class="modal-close-area modal-close-df">
+                                                                    <a class="close" data-dismiss="modal" href="#"><i class="fa fa-close"></i></a>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <span class="educate-icon educate-warning modal-check-pro information-icon-pro"></span>
+                                                                    <h2>Warning!</h2>
+                                                                    <p>Do You Want To Delete teacher Profile?</p>
+                                                                </div>
+                                                                <div class="modal-footer warning-md">
+                                                                    <a data-dismiss="modal" href="#">Cancel</a>
+                                                                    <a href="#">Process</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        
+                                            
+                                            {% endif %}
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                                    </div>
+                                </div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>-->
+        <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                        <h4 class="modal-title custom_align" id="Heading">Upload CSV File Of Teachers</h4>
+                    </div>
+                    <form action="{% url 'student-csv' user.username %}" method="POST" class=" needsclick add-professors" id="demo1-upload" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="modal-body">
+                       <div class="file-upload-inner ts-forms">
+                            <div class="input prepend-small-btn">
+                                <label class="icon-right" for="prepend-small-btn">
+                                        <i class="fa fa-download"></i>
+                                    </label>
+                                <div class="file-button">
+                                    Browse
+                                    <input type="file" onchange="document.getElementById('prepend-small-btn').value = this.value;" name='csv_file'>
+                                </div>
+                                <input type="text" id="prepend-small-btn" placeholder="no file selected">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer ">
+                        <button type="submit" class="btn btn-warning btn-lg" style="width: 100%;"><span class="glyphicon glyphicon-ok-sign"></span> Upload</button>
+                    </div>
+                    </form>
+
+                </div>
+            <!-- /.modal-content --> 
+        </div>
+            <!-- /.modal-dialog --> 
+    </div>
+    
+        <!-- Static Table End -->
+       {% endblock %}

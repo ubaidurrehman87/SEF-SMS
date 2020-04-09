@@ -1,0 +1,443 @@
+
+       
+
+
+{% load static from staticfiles %}
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    {% if user.is_authenticated %}
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>SEF-School Management System</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- favicon
+		============================================ -->
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/favicon.ico' %}">
+    <!-- Google Fonts
+		============================================ -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
+     
+    <!-- Print PDF
+		============================================ -->
+    <link href=" https://printjs-4de6.kxcdn.com/print.min.js">
+    <link href=" https://printjs-4de6.kxcdn.com/print.min.css" rel="stylesheet">
+     
+  
+    <!-- Bootstrap CSS
+		============================================ -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <!-- Bootstrap CSS
+		============================================ -->
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+    <!-- owl.carousel CSS
+		============================================ -->
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.transitions.css' %}">
+    <!-- animate CSS
+		============================================ -->
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+    <!-- normalize CSS
+		============================================ -->
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+    <!-- meanmenu icon CSS
+		============================================ -->
+    <link rel="stylesheet" href="{% static 'css/meanmenu.min.css' %}">
+    <!-- main CSS
+		============================================ -->
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <!-- Ion icon CSS
+		============================================ -->
+        <link href="{% static 'lib/ionicons/css/ionicons.min.css' %}" rel="stylesheet">
+    <!-- educate icon CSS
+		============================================ -->
+    <link rel="stylesheet" href="{% static 'css/educate-custon-icon.css' %}">
+    <!-- morrisjs CSS
+		============================================ -->
+    <link rel="stylesheet" href="{% static 'css/morrisjs/morris.css' %}">
+    <!-- mCustomScrollbar CSS
+		============================================ -->
+    <link rel="stylesheet" href="{% static 'css/scrollbar/jquery.mCustomScrollbar.min.css' %}">
+    <!-- metisMenu CSS
+		============================================ -->
+    <link rel="stylesheet" href="{% static 'css/metisMenu/metisMenu.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/metisMenu/metisMenu-vertical.css' %}">
+    <!-- calendar CSS
+		============================================ -->
+    <link rel="stylesheet" href="{% static 'css/calendar/fullcalendar.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/calendar/fullcalendar.print.min.css' %}">
+     <!-- alerts CSS
+		============================================ -->
+    <link rel="stylesheet" href="{% static 'css/alerts.css' %}"> 
+    <!-- modals CSS all-courses
+    ============================================ -->
+    <link rel="stylesheet" href="{% static 'css/modals.css' %}">
+     <!-- forms CSS
+		============================================ -->
+    <link rel="stylesheet" href="{% static 'css/form/all-type-forms.css' %}">
+    <!-- dropzone CSS
+		============================================ -->
+    <link rel="stylesheet" href="{% static 'css/dropzone/dropzone.css' %}">
+     <!-- buttons CSS
+		============================================ -->
+    <link rel="stylesheet" href="{% static 'css/buttons.css' %}">
+     <!-- accordions CSS
+         ============================================ -->
+    <link rel="stylesheet" href="{% static 'css/accordions.css' %}">
+      <!-- touchspin CSS
+		============================================ -->
+    <link rel="stylesheet" href="{% static 'css/touchspin/jquery.bootstrap-touchspin.min.css' %}">
+    <!-- datapicker CSS
+		============================================ -->
+    <link rel="stylesheet" href="{% static 'css/datapicker/datepicker3.css' %}">
+     <!-- Chart CSS
+		============================================ -->
+    <link rel="stylesheet" href="{% static 'css/c3/c3.min.css' %}">
+    <!-- codemirror CSS
+		============================================ -->
+    <link rel="stylesheet" href="{% static 'css/code-editor/codemirror.css' %}">
+    <link rel="stylesheet" href="{% static 'css/code-editor/ambiance.css' %}">
+     <!-- x-editor CSS
+		============================================ -->
+    <link rel="stylesheet" href="{% static 'css/editor/select2.css' %}">
+    <link rel="stylesheet" href="{% static 'css/editor/datetimepicker.css' %}">
+    <link rel="stylesheet" href="{% static 'css/editor/bootstrap-editable.css' %}">
+    <link rel="stylesheet" href="{% static 'css/editor/x-editor-style.css' %}">
+    <!-- normalize CSS
+		============================================ -->
+    <link rel="stylesheet" href="{% static 'css/data-table/bootstrap-table.css' %}">
+    <link rel="stylesheet" href="{% static 'css/data-table/bootstrap-editable.css' %}">
+    <!-- duallistbox CSS
+		============================================ -->
+    <link rel="stylesheet" href="{% static 'css/duallistbox/bootstrap-duallistbox.min.css' %}">
+    <!-- cropper CSS
+		============================================ -->
+    <link rel="stylesheet" href="{% static 'css/cropper/cropper.min.css' %}">
+    <!-- summernote CSS
+		============================================ -->
+    <link rel="stylesheet" href="{% static 'css/summernote/summernote.css' %}">
+     <!-- modals CSS
+		============================================ -->
+    <link rel="stylesheet" href="{% static 'css/modals.css' %}">
+     <!-- notifications CSS
+		============================================ -->
+    <link rel="stylesheet" href="{% static 'css/notifications/Lobibox.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/notifications/notifications.css' %}">
+    <!-- Preloader CSS
+		============================================ -->
+    <link rel="stylesheet" href="{% static 'css/preloader/preloader-style.css' %}">
+     <!-- tabs CSS
+		============================================ -->
+    <link rel="stylesheet" href="{% static 'css/tabs.css' %}">
+     <!-- summernote CSS
+		============================================ -->
+    <link rel="stylesheet" href="{% static 'css/summernote/summernote.css' %}">
+     <!-- tree viewer CSS
+		============================================ -->
+    <link rel="stylesheet" href="{% static 'css/tree-viewer/tree-viewer.css' %}">
+      <!-- x-editor CSS
+		============================================ -->
+    <link rel="stylesheet" href="{% static 'css/editor/select2.css' %}">
+    <link rel="stylesheet" href="{% static 'css/editor/datetimepicker.css' %}">
+    <link rel="stylesheet" href="{% static 'css/editor/bootstrap-editable.css' %}">
+    <link rel="stylesheet" href="{% static 'css/editor/x-editor-style.css' %}">
+    <!-- select2 CSS
+		============================================ -->
+    <link rel="stylesheet" href="{% static 'css/select2/select2.min.css' %}">
+    <!-- chosen CSS
+		============================================ -->
+    <link rel="stylesheet" href="{% static 'css/chosen/bootstrap-chosen.css' %}">
+    <!-- style CSS
+		============================================ -->
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <!-- responsive CSS
+		============================================ -->
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+    <!-- modernizr JS
+		============================================ -->
+    <script src="{% static 'js/vendor/modernizr-2.8.3.min.js' %}"></script>
+    <script src="https://kit.fontawesome.com/fea5cf3a71.js"></script>
+     
+   <style type="text/css">
+         #loading{
+            background:#fff;
+            opacity: 1;
+            position: fixed;
+            z-index: 10;
+            top:0;
+            width: 100%;
+            height:1600px;
+        }
+        #loader{
+            color:#fff;
+            width:250px;
+            height:250px;
+            margin:300px auto;
+            margin-left: 700px;
+        
+        }
+        .footer-copyright-area{
+            margin-top: 170px;
+        }
+    </style>
+    <script type="text/javascript">
+     
+        window.addEventListener("load", function(){
+            var load = document.getElementById("loading");
+          
+            document.body.removeChild(load);
+           
+           
+        });
+     
+        window.onload = function() {
+            document.getElementById("wName").focus();
+        }
+    </script>
+</head>
+<div id="loading">
+        <div id="loader"><img src={% static 'img/loader/book.gif' %} /></div>
+</div>
+<body>
+
+ 	<div class="error-pagewrap">
+		<div class="error-page-int">
+			<div class="content-error">
+				<h1>ERROR <span class="counter"> 404</span></h1>
+				<p>Sorry, but the page you are looking for has note been found. Try checking the URL for the error, then hit the refresh button on your browser or try found something else in our app.</p>
+				<a href="#">Dashboard</a>
+				<a href="#">Report Problem</a>
+			</div>
+			
+		</div>   
+    </div>
+    
+    <!-- jquery
+		============================================ -->
+    <script src="{% static 'js/vendor/jquery-1.12.4.min.js' %}"></script>
+    <!-- bootstrap JS
+		============================================ -->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <!-- wow JS
+		============================================ -->
+    <script src="{% static 'js/wow.min.js' %}"></script>
+    <!-- price-slider JS
+		============================================ -->
+    <script src="{% static 'js/jquery-price-slider.js' %}"></script>
+    <!-- meanmenu JS
+		============================================ -->
+    <script src="{% static 'js/jquery.meanmenu.js' %}"></script>
+    <!-- owl.carousel JS
+		============================================ -->
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <!-- sticky JS
+		============================================ -->
+    <script src="{% static 'js/jquery.sticky.js' %}"></script>
+    <!-- scrollUp JS
+		============================================ -->
+    <script src="{% static 'js/jquery.scrollUp.min.js' %}"></script>
+    <!-- counterup JS
+		============================================ -->
+    <script src="{% static 'js/counterup/jquery.counterup.min.js' %}"></script>
+    <script src="{% static 'js/counterup/waypoints.min.js' %}"></script>
+    <script src="{% static 'js/counterup/counterup-active.js' %}"></script>
+    <!-- mCustomScrollbar JS
+		============================================ -->
+    <script src="{% static 'js/scrollbar/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+    <script src="{% static 'js/scrollbar/mCustomScrollbar-active.js' %}"></script>
+    <!-- metisMenu JS
+		============================================ -->
+    <script src="{% static 'js/metisMenu/metisMenu.min.js' %}"></script>
+    <script src="{% static 'js/metisMenu/metisMenu-active.js' %}"></script>
+    <!-- morrisjs JS
+		============================================ -->
+    <script src="{% static 'js/morrisjs/raphael-min.js' %}"></script>
+    <script src="{% static 'js/morrisjs/morris.js' %}"></script>
+    <script src="{% static 'js/morrisjs/morris-active.js' %}"></script>
+    <!-- morrisjs JS
+		============================================ -->
+    <script src="{% static 'js/sparkline/jquery.sparkline.min.js' %}"></script>
+    <script src="{% static 'js/sparkline/jquery.charts-sparkline.js' %}"></script>
+    <script src="{% static 'js/sparkline/sparkline-active.js' %}"></script>
+    <!-- calendar JS
+		============================================ -->
+    <script src="{% static 'js/calendar/moment.min.js' %}"></script>
+    <script src="{% static 'js/calendar/fullcalendar.min.js' %}"></script>
+    <script src="{% static 'js/calendar/fullcalendar-active.js' %}"></script>
+     <!-- form validate JS
+		============================================ -->
+    <script src="{% static 'js/form-validation/jquery.form.min.js' %}"></script>
+    <script src="{% static 'js/form-validation/jquery.validate.min.js' %}"></script>
+    <script src="{% static 'js/form-validation/form-active.js' %}"></script>
+    <!-- dropzone JS
+		============================================ -->
+    <script src="{% static 'js/dropzone/dropzone.js' %}"></script>
+     <!-- data table JS
+		============================================ -->
+    <script src="{% static 'js/data-table/bootstrap-table.js' %}"></script>
+    <script src="{% static 'js/data-table/tableExport.js' %}"></script>
+    <script src="{% static 'js/data-table/data-table-active.js' %}"></script>
+    <script src="{% static 'js/data-table/bootstrap-table-editable.js' %}"></script>
+    <script src="{% static 'js/data-table/bootstrap-editable.js' %}"></script>
+    <script src="{% static 'js/data-table/bootstrap-table-resizable.js' %}"></script>
+    <script src="{% static 'js/data-table/colResizable-1.5.source.js' %}"></script>
+    <script src="{% static 'js/data-table/bootstrap-table-export.js' %}"></script>
+    <!--  editable JS
+		============================================ -->
+    <script src="{% static 'js/editable/jquery.mockjax.js' %}"></script>
+    <script src="{% static 'js/editable/mock-active.js' %}"></script>
+    <script src="{% static 'js/editable/select2.js' %}"></script>
+    <script src="{% static 'js/editable/moment.min.js' %}"></script>
+    <script src="{% static 'js/editable/bootstrap-datetimepicker.js' %}"></script>
+    <script src="{% static 'js/editable/bootstrap-editable.js' %}"></script>
+    <script src="{% static 'js/editable/xediable-active.js' %}"></script>
+    <!-- cropper JS
+		============================================ -->
+    <script src="{% static 'js/cropper/cropper.min.js' %}"></script>
+    <script src="{% static 'js/cropper/cropper-actice.js' %}"></script>
+    <!-- pdf JS
+		============================================ -->
+    <script src="{% static 'js/pdf/jquery.media.js' %}"></script>
+    <script src="{% static 'js/pdf/pdf-active.js' %}"></script>
+    <!-- datepicker JS
+		============================================ -->
+    <script src="{% static 'js/datepicker/jquery-ui.min.js' %}"></script>
+    <script src="{% static 'js/datepicker/datepicker-active.js' %}"></script>
+    <!-- datapicker JS
+		============================================ -->
+    <script src="{% static 'js/datapicker/bootstrap-datepicker.js' %}"></script>
+    <script src="{% static 'js/datapicker/datepicker-active.js' %}"></script>
+    <!-- pwstrength JS
+		============================================ -->
+    <script src="{% static 'js/password-meter/pwstrength-bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/password-meter/zxcvbn.js' %}"></script>
+    <script src="{% static 'js/password-meter/password-meter-active.js' %}"></script>
+     <!-- input-mask JS
+		============================================ -->
+    <script src="{% static 'js/input-mask/jasny-bootstrap.min.js' %}"></script>
+    <!-- chosen JS
+		============================================ -->
+    <script src="{% static 'js/chosen/chosen.jquery.js' %}"></script>
+    <script src="{% static 'js/chosen/chosen-active.js' %}"></script>
+    <!-- select2 JS
+		============================================ -->
+    <script src="{% static 'js/select2/select2.full.min.js' %}"></script>
+    <script src="{% static 'js/select2/select2-active.js' %}"></script>
+    <!-- ionRangeSlider JS
+		============================================ -->
+    <script src="{% static 'js/ionRangeSlider/ion.rangeSlider.min.js' %}"></script>
+    <script src="{% static 'js/ionRangeSlider/ion.rangeSlider.active.js' %}"></script>
+    <!-- rangle-slider JS
+		============================================ -->
+    <script src="{% static 'js/rangle-slider/jquery-ui-1.10.4.custom.min.js' %}"></script>
+    <script src="{% static 'js/rangle-slider/jquery-ui-touch-punch.min.js' %}"></script>
+    <script src="{% static 'js/rangle-slider/rangle-active.js' %}"></script>
+    <!-- knob JS
+		============================================ -->
+    <script src="{% static 'js/knob/jquery.knob.js' %}"></script>
+    <script src="{% static 'js/knob/knob-active.js' %}"></script>
+     <!-- touchspin JS
+		============================================ -->
+    <script src="{% static 'js/touchspin/jquery.bootstrap-touchspin.min.js' %}"></script>
+    <script src="{% static 'js/touchspin/touchspin-active.js' %}"></script>
+    
+    <!-- Chart JS
+		============================================ -->
+    <script src="{% static 'js/chart/jquery.peity.min.js' %}"></script>
+    <script src="{% static 'js/peity/peity-active.js' %}"></script>
+    <!-- tab JS
+		============================================ -->
+    <script src="{% static 'js/tab.js' %}"></script>
+    <!-- plugins JS
+		============================================ -->
+    <script src="{% static 'js/plugins.js' %}"></script>
+    <!-- main JS
+		============================================ -->
+    <script src="{% static 'js/main.js' %}"></script>
+    <!-- Vue JS
+		============================================ -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+
+    <script>
+    $(document).ready(function() {
+    var front = document.getElementsByClassName("front");
+    var back = document.getElementsByClassName("back");
+
+    var highest = 0;
+    var absoluteSide = "";
+
+    for (var i = 0; i < front.length; i++) {
+        if (front[i].offsetHeight > back[i].offsetHeight) {
+        if (front[i].offsetHeight > highest) {
+            highest = front[i].offsetHeight;
+            absoluteSide = ".front";
+        }
+        } else if (back[i].offsetHeight > highest) {
+        highest = back[i].offsetHeight;
+        absoluteSide = ".back";
+        }
+    }
+    $(".front").css("height", highest);
+    $(".back").css("height", highest);
+    $(absoluteSide).css("position", "absolute");
+    });
+    </script>
+    <script>
+    $(document).ready(function(){
+        $('.filterable .btn-filter').click(function(){
+            var $panel = $(this).parents('.filterable'),
+            $filters = $panel.find('.filters input'),
+            $tbody = $panel.find('.table tbody');
+            if ($filters.prop('disabled') == true) {
+                $filters.prop('disabled', false);
+                $filters.first().focus();
+            } else {
+                $filters.val('').prop('disabled', true);
+                $tbody.find('.no-result').remove();
+                $tbody.find('tr').show();
+            }
+        });
+
+        $('.filterable .filters input').keyup(function(e){
+            /* Ignore tab key */
+            var code = e.keyCode || e.which;
+            if (code == '9') return;
+            /* Useful DOM data and selectors */
+            var $input = $(this),
+            inputContent = $input.val().toLowerCase(),
+            $panel = $input.parents('.filterable'),
+            column = $panel.find('.filters th').index($input.parents('th')),
+            $table = $panel.find('.table'),
+            $rows = $table.find('tbody tr');
+            /* Dirtiest filter function ever ;) */
+            var $filteredRows = $rows.filter(function(){
+                var value = $(this).find('td').eq(column).text().toLowerCase();
+                return value.indexOf(inputContent) === -1;
+            });
+            /* Clean previous no-result if exist */
+            $table.find('tbody .no-result').remove();
+            /* Show all rows, hide filtered ones (never do that outside of a demo ! xD) */
+            $rows.show();
+            $filteredRows.hide();
+            /* Prepend no-result row if all rows are filtered */
+            if ($filteredRows.length === $rows.length) {
+                $table.find('tbody').prepend($('<tr class="no-result text-center"><td colspan="'+ $table.find('.filters th').length +'">No result found</td></tr>'));
+            }
+        });
+    });
+    </script>
+    <!-- tawk chat JS
+		============================================ -->
+    <script src="{% static 'js/tawk-chat.js' %}"></script>
+
+    {% else %}
+
+    
+    {% endif %}
+    
+</body>
+
+</html>

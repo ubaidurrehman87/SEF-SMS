@@ -1,0 +1,207 @@
+
+{% extends 'base.html' %}
+{% load humanize %}
+{% block content %}
+{% load static from staticfiles %}
+            <!-- Mobile Menu end -->
+            <div class="breadcome-area">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="breadcome-list single-page-breadcome">
+                                <div class="row">
+                                <!--    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                        <div class="breadcome-heading">
+                                            <form role="search" class="sr-input-func">
+                                                <input type="text" placeholder="Search..." class="search-int form-control">
+                                                <a href="#"><i class="fa fa-search"></i></a>
+                                            </form>
+                                        </div>
+                                    </div> -->
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                        <ul class="breadcome-menu">
+                                            <li><a href="#">Home</a> <span class="bread-slash">/</span>
+                                            </li>
+                                            <li><span class="bread-blod">Data Table</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Static Table Start -->
+        <div class="data-table-area mg-b-15">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="sparkline13-list">
+                            <div class="sparkline13-hd">
+                                <div class="main-sparkline13-hd">
+                                    <h1>Student <span class="table-project-n">Data</span> Table</h1>
+                                </div>
+                            </div>
+                            {% for message in messages %}
+                            <div class="row">
+                                <div class="col-lg-5 col-md-5 col-sm-5 col-col-xs-12">
+                                    {% if message.tags == 'success' %}
+                                    <div class="alert alert-success alert-success-style1 alert-st-bg">
+                                        <button type="button" class="close sucess-op" data-dismiss="alert" aria-label="Close">
+                                                <span class="icon-sc-cl" aria-hidden="true">&times;</span>
+                                            </button>
+                                        <i class="fa fa-check edu-checked-pro admin-check-pro admin-check-pro-clr" aria-hidden="true"></i>
+                                        <p><strong>Successfully! </strong>  {{message}}</p>
+                                    </div>
+                                    {% elif message.tags == 'error' %}
+                                    <div class="alert alert-danger alert-mg-b alert-success-style4 alert-st-bg3">
+                                        <button type="button" class="close sucess-op" data-dismiss="alert" aria-label="Close">
+                                                <span class="icon-sc-cl" aria-hidden="true">&times;</span>
+                                            </button>
+                                        <i class="fa fa-times edu-danger-error admin-check-pro admin-check-pro-clr3" aria-hidden="true"></i>
+                                        <p><strong>Unsuccessfully! </strong> {{message}}</p>
+                                    </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            {% endfor %}
+                            <div class="sparkline13-graph">
+                                <div class="datatable-dashv1-list custom-datatable-overright">
+                                <div class="row">
+                                <div class="product-status-wrap">     
+                                        <div class="add-product">
+                                            <a href="{% url 'add-student' user.username %}">Add Student</a>
+                                        </div>
+                                        <div class="add-product">
+                                            <button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span> Upload CSV FILE</button>
+                                        </div>
+                                    <div class="asset-inner">
+                                    <table id="table" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="true" data-show-pagination-switch="true" data-show-refresh="true" data-key-events="true" data-show-toggle="true" data-resizable="true" data-cookie="true"
+                                        data-cookie-id-table="saveId" data-show-export="true" data-click-to-select="true" data-toolbar="#toolbar">
+                                        <thead style="background: #006df0;">
+                                            <tr>
+                                                <th data-field="state" data-checkbox="true"></th>
+                                                
+                                                <th data-field="id" data-editable="true">GR#</th>
+                                                <th data-field="name" data-editable="true">Name</th>
+                                                <th data-field="email" data-editable="true">Father Name</th>
+                                                <th data-field="price" data-editable="true">Father CNIC#</th>
+                                                <th data-field="phone" data-editable="true">contact #</th>
+                                                <th data-field="task" data-editable="true">current class</th>
+                                                <th data-field="date" data-editable="true">Date of Admission</th>
+                                                <th>Status</th>
+                                                <th data-field="action">Action</th>
+                                                <th data-field="delete">Delete</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for stud in studs %}
+                                            {% if stud.user_id == user.id %}
+                                            <tr>
+                                                <td></td>
+                                                
+                                                <td>{{stud.gr}}</td>
+                                                <td>{{stud.name}}</td>
+                                                <td>{{stud.f_Name}}</td>
+                                                <td>{{stud.cnic}}</td>
+                                                <td>{{stud.contact1}}</td>
+                                                <td>{{stud.current_class | ordinal}} - {{stud.section}}</td>
+                                                <td>{{stud.admit_date}}</td>
+                                                <td>
+                                                    {% if stud.status == 'promoted' or stud.status == 'Promoted' %}
+                                                    <button class="pd-setting">Promoted</button>
+                                                    {% elif stud.status == 'passout' %}
+                                                    <button class="ps-setting">Pass Out</button>
+                                                    {% elif stud.status == 'dropout' %}
+                                                    <button class="ds-setting">Drop Out</button>
+                                                    {% endif %}
+                                                </td>
+                                                <td >
+                                                    <a href="{% url 'edit-student' stud.id %}"> <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button> </a>
+                                                    <a href="{% url 'student-profile' stud.id %}"> <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-eye" aria-hidden="true"></i></button> </a>
+                                                    
+                                                </td>
+                                                <td><a href="{% url 'student-profile' stud.id %}"> <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-trash" aria-hidden="true"></i></button> </a></td>
+                                            </tr>
+                                        
+                                            
+                                            {% endif %}
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                                    </div>
+                                </div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                        <h4 class="modal-title custom_align" id="Heading">Upload CSV File Of Students</h4>
+                    </div>
+                    <form action="{% url 'student-csv' user.username %}" method="POST" class=" needsclick add-professors" id="demo1-upload" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="modal-body">
+                        <div class="file-upload-inner ts-forms">
+                            <div class="input prepend-small-btn">
+                                <label class="icon-right" for="prepend-small-btn">
+                                        <i class="fa fa-download"></i>
+                                    </label>
+                                <div class="file-button">
+                                    Browse
+                                    <input type="file" onchange="document.getElementById('prepend-small-btn').value = this.value;" name='csv_file'>
+                                </div>
+                                <input type="text" id="prepend-small-btn" placeholder="no file selected">
+                            </div>
+                        </div>
+                        <p><b>NOTE:</b> CSV File Must Have Following Pattern of Columns.</p>
+                        <p><b>1)</b> GR# <b>2)</b> Name <b>3)</b> Father Name <b>4)</b> Contact#1 <b>5)</b> Contact#2 <b>6)</b> Address</p>
+                        <p><b>7)</b> Date of Birth <b>8)</b> Admission date <b>9)</b> Religion <b>10)</b> Admission Class <b>11)</b> Current Class</p>
+                        <p><b>12)</b> Section <b>13)</b> Shift <b>14)</b> Last School <b>15)</b> Gender <b>16)</b> Age <b>17)</b> CNIC <b>18)</b> Status</p>
+                    </div>
+                    <div class="modal-footer ">
+                        <button type="submit" class="btn btn-warning btn-lg" style="width: 100%;"><span class="glyphicon glyphicon-ok-sign"></span>Upload</button>
+                    </div>
+                    </form>
+
+                </div>
+            <!-- /.modal-content --> 
+        </div>
+            <!-- /.modal-dialog --> 
+    </div>
+
+
+        <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                    <h4 class="modal-title custom_align" id="Heading">Delete this entry</h4>
+                </div>
+                    <div class="modal-body">
+                
+                <div class="alert alert-danger"><span class="glyphicon glyphicon-warning-sign"></span> Are you sure you want to delete this Record?</div>
+                
+                </div>
+                    <div class="modal-footer ">
+                    <button type="button" class="btn btn-success" ><span class="glyphicon glyphicon-ok-sign"></span> Yes</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> No</button>
+                </div>
+                    </div>
+                <!-- /.modal-content --> 
+            </div>
+            <!-- /.modal-dialog --> 
+        </div>
+        <!-- Static Table End -->
+       {% endblock %}

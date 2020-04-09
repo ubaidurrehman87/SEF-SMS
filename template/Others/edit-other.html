@@ -1,0 +1,320 @@
+{% extends 'base.html' %}
+{% load humanize %}
+{% block content %}
+{% load static from staticfiles %}
+            <!-- Mobile Menu end -->
+            <div class="breadcome-area">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="breadcome-list single-page-breadcome">
+                                <div class="row">
+                                    <!--    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                        <div class="breadcome-heading">
+                                            <form role="search" class="sr-input-func">
+                                                <input type="text" placeholder="Search..." class="search-int form-control">
+                                                <a href="#"><i class="fa fa-search"></i></a>
+                                            </form>
+                                        </div>
+                                    </div> -->
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                        <ul class="breadcome-menu">
+                                            <li><a href="#">Home</a> <span class="bread-slash">/</span>
+                                            </li>
+                                            <li><span class="bread-blod">Add Professor</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Single pro tab review Start-->
+        <div class="single-pro-review-area mt-t-30 mg-b-15">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="product-payment-inner-st">
+                            <ul id="myTabedu1" class="tab-review-design">
+                                <li class="active"><a href="#description">Teacher Information</a></li>
+                                
+                               
+                            </ul>
+                            <div id="myTabContent" class="tab-content custom-product-edit">
+                                <div class="product-tab-list tab-pane fade active in" id="description">
+                                    <div class="row">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <div class="review-content-section">
+                                                <div id="dropzone1" class="pro-ad">
+                                                    <form action="{% url 'edit-other' prof.id %}" method="POST" class=" needsclick add-professors" id="demo1-upload" enctype="multipart/form-data">
+                                                        {% csrf_token %}
+                                                        <div class="row">
+                                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                                <br>
+                                                                <legend><span style="background: #1abc9c;color: #fff;height: 30px;width: 30px;display: inline-block;font-size: 0.8em;margin-right: 4px;line-height: 30px;text-align: center;border-bottom: 0px;text-shadow: 0 1px 0 rgba(255,255,255,0.2);border-radius: 15px 15px 15px 0px;">1</span> Personal Info</legend>
+                                                               
+                                                                <div class="form-group">
+                                                                    <input name="name"  value="{{prof.name}}" type="text" class="form-control" placeholder="Full Name">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <input name="f_Name" value="{{prof.f_Name}}" type="text" class="form-control" placeholder="Father or Husband Name">
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                                        <div class="form-group">
+                                                                            <input name="cnic" type="text" value="{{prof.cnic}}" class="form-control" data-mask="99999-9999999-9" placeholder="CNIC#">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                                        <div class="form-group">
+                                                                            <input name="age" type="number" value="{{prof.age}}" class="form-control" placeholder="Age">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group data-custon-pick" id="data_3">
+                                                                    <div class="input-group date">
+                                                                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                                                        <input name="dob"  type="text" class="form-control" placeholder="Date of Birth">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                                        <div class="form-group">
+                                                                            <select name="gender" class="form-control">
+                                                                                <option value="none" disabled="">Select Gender</option>
+                                                                                <option selected="" value="{{prof.gender}}" >{{prof.gender}}</option>
+                                                                                <option value="male">Male</option>
+                                                                                <option value="female">Female</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                                        <div class="form-group">
+                                                                            <select name="religion" class="form-control">
+                                                                                <option value="none" disabled="">Select Religion</option>
+                                                                                <option  selected="" value="{{prof.religion}}" >{{prof.religion}}</option>
+                                                                                <option value="muslim">Muslim</option>
+                                                                                <option value="nonmuslim">Non-Muslim</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                               <br>
+                                                                <legend><span style="background: #1abc9c;color: #fff;height: 30px;width: 30px;display: inline-block;font-size: 0.8em;margin-right: 4px;line-height: 30px;text-align: center;border-bottom: 0px;text-shadow: 0 1px 0 rgba(255,255,255,0.2);border-radius: 15px 15px 15px 0px;">2</span> Contact Info</legend>
+                                                               <div class="row">
+                                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                                        <div class="form-group">
+                                                                            <input name="contact1" type="text" class="form-control" value="{{prof.contact1}}"  data-mask="9999-9999999" placeholder="Contact 1">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                                        {% if prof.contact2 is not None %}
+                                                                            <div class="form-group">
+                                                                            <input type="text" name="contact2" class="form-control" value="{{prof.contact2}}" data-mask="9999-9999999" placeholder="Contact 2">
+                                                                            </div>
+                                                                        {% else %}
+                                                                            <div class="form-group">
+                                                                            <input type="text" name="contact2" class="form-control" data-mask="9999-9999999" placeholder="Contact 2">
+                                                                            </div>
+                                                                        {% endif %}
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <input name="address" type="text" class="form-control" value="{{prof.address}}" placeholder="Address">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <input name="email" type="email" class="form-control" value="{{prof.email}}" placeholder="Email Address" required>
+                                                                </div>
+                                                                
+                                                                <div class="file-upload-inner ts-forms">
+                                                                    <div class="input prepend-small-btn">
+                                                                        <label class="icon-right" for="prepend-small-btn">
+																				<i class="fa fa-download"></i>
+																			</label>
+                                                                        <div class="file-button">
+                                                                            Image
+                                                                            <input type="file" onchange="document.getElementById('prepend-small-btn').value = this.value;" name='image'>
+                                                                        </div>
+                                                                        <input type="text" id="prepend-small-btn" placeholder="no image selected">
+                                                                        
+                                                                    </div>
+                                                                </div>
+                                                                
+
+                                                            </div>
+                                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                                <br>
+                                                                <legend><span style="background: #1abc9c;color: #fff;height: 30px;width: 30px;display: inline-block;font-size: 0.8em;margin-right: 4px;line-height: 30px;text-align: center;border-bottom: 0px;text-shadow: 0 1px 0 rgba(255,255,255,0.2);border-radius: 15px 15px 15px 0px;">3</span> Education Info</legend>
+                                                                <div class="form-group">
+                                                                    <input name="experience" type="number" value="{{prof.experience}}" class="form-control" placeholder="Experience Year">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                <select name="education_level" class="form-control">
+                                                                    <option value="none"  disabled="">Select Education Level</option>
+                                                                    <option selected="" value="{{prof.education_level}}">{{prof.education_level}}</option>
+                                                                    <option value="MA">MA</option>
+                                                                    <option value="MSc">MSc</option>
+                                                                    <option value="MBA">MBA</option>
+                                                                    <option value="BA">BA</option>
+                                                                    <option value="BSc">BSc</option>
+                                                                    <option value="BBA">BBA</option>
+                                                                    <option value="B.Com">B.Com</option>
+                                                                    <option value="Intermediate">Intermediate</option>
+                                                                    <option value="Matric">Matric</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <input name="job_title" value={{prof.job_title}} type="text" class="form-control" placeholder="Job Title">
+                                                            </div> 
+                                                                   
+                                                            <div class="form-group">
+                                                                <select name="shift" class="form-control" >
+                                                                    <option value="none"  disabled="">Select Shift</option>
+                                                                    <option  selected="" value="{{prof.shift}}">{{prof.shift}}</option>
+                                                                    <option value="morning">Morning</option>
+                                                                    <option value="evening">Evening</option>
+                                                                    <option value="both">Both</option>
+                                                                </select>
+                                                            </div>   
+                                                        
+                                                            
+                                                           
+                                                            <div class="row">
+                                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">   
+                                                                    <div class="form-group data-custon-pick" id="data_3">
+                                                                        <div class="input-group date">
+                                                                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                                                            <input name="joining_date"type="text" class="form-control" placeholder="Date of Joining" >
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">        
+                                                                    <div class="form-group">
+                                                                        <select name="status" class="form-control" >
+                                                                            <option value="none"  disabled="">Select Status</option>
+                                                                            <option  selected="" value="{{prof.status}}">{{prof.status}}</option>
+                                                                            <option value="retained">retained</option>
+                                                                            <option value="on_leave">On Leave</option>
+                                                                            <option value="left">Left</option>
+                                                                        </select>
+                                                                    </div>   
+                                                                </div>
+                                                            </div>
+                                                            <br>
+                                                                <legend><span style="background: #1abc9c;color: #fff;height: 30px;width: 30px;display: inline-block;font-size: 0.8em;margin-right: 4px;line-height: 30px;text-align: center;border-bottom: 0px;text-shadow: 0 1px 0 rgba(255,255,255,0.2);border-radius: 15px 15px 15px 0px;">4</span> Account Info</legend>
+                                                            
+                                                            <div class="form-group">
+                                                                <input name="bank_name" type="text" class="form-control" placeholder="Bank Name" value="{{prof.bank_name}}">
+                                                            </div>    
+                                                            <div class="form-group">
+                                                                <input name="branch_code" type="text" class="form-control" placeholder="Branch Code" value="{{prof.branch_code}}">
+                                                            </div>    
+                                                            <div class="form-group">
+                                                                <input name="account_number" type="text" class="form-control" placeholder="Account Number" value="{{prof.account_number}}">
+                                                            </div>    
+                                                               
+                                                               
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class=s"col-lg-12">
+                                                                <div class="payment-adress">
+                                                                    <div class="modal-area-button">
+                                                                            <a class="Information Information-color mg-b-10" href="#" data-toggle="modal" data-target="#InformationproModalalert"><span><i class="fa fa-edit"></i></span> Update</a>
+                                                                    </div>
+                                                                    <div id="InformationproModalalert" class="modal modal-edu-general fullwidth-popup-InformationproModal fade" role="dialog">
+                                                                        <div class="modal-dialog">
+                                                                            <div class="modal-content">
+                                                                                <div class="modal-close-area modal-close-df">
+                                                                                    <a class="close" data-dismiss="modal" href="#"><i class="fa fa-close"></i></a>
+                                                                                </div>
+                                                                                <div class="modal-body">
+                                                                                    <span class="educate-icon educate-info modal-check-pro information-icon-pro"> </span>
+                                                                                    <h2>Update!</h2>
+                                                                                    <p>Do You Want to Update {{stud.name}} Profile ?</p>
+                                                                                </div>
+                                                                                <div class="modal-footer info-md">
+                                                                                    <a data-dismiss="modal" href="#"><button>Cancel</button></a>
+                                                                                    <a ><button type="submit">Process</button></a>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product-tab-list tab-pane fade" id="reviews">
+                                    <div class="row">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <div class="review-content-section">
+                                                <div class="row">
+                                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                        <form id="acount-infor" action="#" class="acount-infor">
+                                                            <div class="devit-card-custom">
+                                                                <div class="form-group">
+                                                                    <input type="text" class="form-control" name="email" placeholder="Email">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <input name="phoneno" type="number" class="form-control" placeholder="Phone">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <input name="password" type="password" class="form-control" placeholder="Password">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <input name="confarmpassword" type="password" class="form-control" placeholder="Confirm Password">
+                                                                </div>
+                                                                <a href="#" class="btn btn-primary waves-effect waves-light">Submit</a>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product-tab-list tab-pane fade" id="INFORMATION">
+                                    <div class="row">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <div class="review-content-section">
+												<div class="row">
+													<div class="col-lg-12">
+														<div class="devit-card-custom">
+															<div class="form-group">
+																<input type="url" class="form-control" placeholder="Facebook URL">
+															</div>
+															<div class="form-group">
+																<input type="url" class="form-control" placeholder="Twitter URL">
+															</div>
+															<div class="form-group">
+																<input type="url" class="form-control" placeholder="Google Plus">
+															</div>
+															<div class="form-group">
+																<input type="url" class="form-control" placeholder="Linkedin URL">
+															</div>
+															<button type="submit" class="btn btn-primary waves-effect waves-light">Submit</button>
+														</div>
+													</div>
+												</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+      {% endblock %}

@@ -1,0 +1,309 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static from staticfiles %}
+            <!-- Mobile Menu end -->
+            <div class="breadcome-area">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="breadcome-list single-page-breadcome">
+                                <div class="row">
+                                    <!--    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                        <div class="breadcome-heading">
+                                            <form role="search" class="sr-input-func">
+                                                <input type="text" placeholder="Search..." class="search-int form-control">
+                                                <a href="#"><i class="fa fa-search"></i></a>
+                                            </form>
+                                        </div>
+                                    </div> -->
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                        <ul class="breadcome-menu">
+                                            <li><a href="#">Home</a> <span class="bread-slash">/</span>
+                                            </li>
+                                            <li><span class="bread-blod">Edit Student</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Single pro tab review Start-->
+        <div class="single-pro-review-area mt-t-30 mg-b-15">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="product-payment-inner-st">
+                            <ul id="myTabedu1" class="tab-review-design">
+                                <li class="active"><a href="#description">Edit Student Information</a></li>
+                            </ul>
+                            
+                            <div id="myTabContent" class="tab-content custom-product-edit">
+                                <div class="product-tab-list tab-pane fade active in" id="description">
+                                    <div class="row">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <div class="review-content-section">
+                                                <div id="dropzone1" class="pro-ad">
+                                                     <form action="{% url 'edit-student' stud.id %}" method="POST" class=" needsclick add-professors" id="demo1-upload" enctype="multipart/form-data">
+                                                        {% csrf_token %}
+                                                        {% if stud is not None %}
+                                                        <div class="row">
+                                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                                <br>
+                                                                <legend><span style="background: #1abc9c;color: #fff;height: 30px;width: 30px;display: inline-block;font-size: 0.8em;margin-right: 4px;line-height: 30px;text-align: center;border-bottom: 0px;text-shadow: 0 1px 0 rgba(255,255,255,0.2);border-radius: 15px 15px 15px 0px;">1</span> Personal Detail</legend>
+                                                                 
+                                                                <div class="form-group">
+                                                                    <input name="gr" type="number" class="form-control" value="{{stud.gr}}" placeholder="GR#" required>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <input name="name" type="text" class="form-control" value="{{stud.name}}" placeholder="Student Name" required>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <input name="f_Name" type="text" class="form-control" value="{{stud.f_Name}}" placeholder="Father Name" required>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <input name="cnic" type="text" class="form-control" data-mask="99999-9999999-9" value="{{stud.cnic}}" placeholder="Father CNIC#" required>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                                        <div class="form-group">
+                                                                            <select name="gender" class="form-control">
+                                                                                <option value="none" disabled="">Select Gender</option>
+                                                                                <option value="{{stud.gender}}"  selected="">{{stud.gender}}</option>
+                                                                                <option value="male">Male</option>
+                                                                                <option value="male">Female</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                                        <div class="form-group">
+                                                                            <select name="religion" class="form-control">
+                                                                                <option value="none"  disabled="">Select Religion</option>
+                                                                                <option value="{{stud.religion}}"  selected="">{{stud.religion}}</option>
+                                                                                <option value="muslim">Muslim</option>
+                                                                                <option value="nonmuslim">Non-Muslim</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <br>
+                                                                <legend><span style="background: #1abc9c;color: #fff;height: 30px;width: 30px;display: inline-block;font-size: 0.8em;margin-right: 4px;line-height: 30px;text-align: center;border-bottom: 0px;text-shadow: 0 1px 0 rgba(255,255,255,0.2);border-radius: 15px 15px 15px 0px;">2</span> Contact Detail</legend>
+                                                                <div class="row">
+                                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                                        <div class="form-group">
+                                                                            <input name="contact1" type="text" class="form-control"  data-mask="9999-9999999" value="{{stud.contact1}}" placeholder="Contact 1" required>
+                                                                        </div>
+                                                                    </div>
+                                                                    {% if stud.contact2 is not None %}
+                                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                                        <div class="form-group">
+                                                                        <input type="text" name="contact2" class="form-control" data-mask="9999-9999999" value="{{stud.contact2}}" placeholder="Contact 2">
+                                                                        </div>
+                                                                    </div>
+                                                                    {% else %}
+                                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                                        <div class="form-group">
+                                                                        <input type="text" name="contact2" class="form-control" data-mask="9999-9999999" placeholder="Contact 2">
+                                                                        </div>
+                                                                    </div>
+                                                                    {% endif %}
+
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <input name="address" type="text" class="form-control" value="{{stud.address}}" placeholder="Address" required>
+                                                                </div>
+                                                                
+                                                                    
+                                                                
+                                                            </div>
+                                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                            <br>
+                                                                <legend><span style="background: #1abc9c;color: #fff;height: 30px;width: 30px;display: inline-block;font-size: 0.8em;margin-right: 4px;line-height: 30px;text-align: center;border-bottom: 0px;text-shadow: 0 1px 0 rgba(255,255,255,0.2);border-radius: 15px 15px 15px 0px;">3</span> Academic Detail</legend>
+                                                                <div class="file-upload-inner ts-forms">
+                                                                    <div class="input prepend-small-btn">
+                                                                        <label class="icon-right" for="prepend-small-btn">
+																				<i class="fa fa-download"></i>
+																			</label>
+                                                                        <div class="file-button">
+                                                                            Image
+                                                                            <input type="file" onchange="document.getElementById('prepend-small-btn').value = this.value;" name='image'>
+                                                                        </div>
+                                                                        <input type="text" id="prepend-small-btn" placeholder="no file selected">
+                                                                    </div>
+                                                                </div>
+                                                               
+                                                                <div class="form-group">
+                                                                <input name="last_school" type="text" class="form-control" value="{{stud.last_school}}" placeholder="Last School Name" required>
+                                                                </div>
+                                                                <div class="form-group data-custon-pick" id="data_3">
+                                                                    <div class="input-group date">
+                                                                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                                                        <input name="dob" type="text" class="form-control" placeholder="Date of Birth">
+                                                                    </div>
+                                                                </div>
+                                                                
+                                                            <div class="row">
+                                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">   
+                                                                    <div class="form-group">
+                                                                            <select name="admit_class" class="form-control">
+                                                                                <option value="none" disabled >Select Admission Section</option>
+                                                                                <option value="{{stud.admit_class}}" selected="" >{{stud.admit_class}}</option>
+                                                                                {% for class in className %}
+                                                                                
+                                                                                <option value="{{class.classname}}">{{class.classname}}</option>
+                                                                                    
+                                                                                {% endfor %}
+                                                                            </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">   
+                                                                    <div class="form-group">
+                                                                            <select name="current_class" class="form-control">
+                                                                                <option value="none" disabled >Select Current Class</option>
+                                                                                <option value="{{stud.current_class}}" selected="">{{stud.current_class}}</option>
+                                                                                {% for class in className %}
+                                                                                    <option value="{{class.classname}}">{{class.classname}}</option>
+                                                                                {% endfor %}
+                                                                            </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                                <div class="form-group">
+                                                                    <select name="section" class="form-control">
+                                                                        <option value="none" disabled >Select Section</option>
+																		<option value="{{stud.section}}" selected="" >{{stud.section}}</option>
+																		{% for class in classSection %}
+                                                                            <option value="{{class.section}}">{{class.section}}</option>
+                                                                        {% endfor %}
+																	</select>
+                                                                </div> 
+                                                                 <div class="form-group">
+                                                                    <select name="shift" class="form-control" >
+																		<option value="none"  disabled="">Select Shift</option>
+																		<option value="{{stud.shift}}"  selected="">{{stud.shift}}</option>
+																		<option value="morning">Morning</option>
+																		<option value="evening">Evening</option>
+																	</select>
+                                                                </div>
+                                                                
+                                                                <div class="form-group data-custon-pick" id="data_3">
+                                                                    <div class="input-group date">
+                                                                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                                                        <input name="admit_date" type="text" class="form-control" placeholder="Select Admission Date" >
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <select name="status" class="form-control">
+																		<option value="none"  disabled="">Select Status</option>
+                                                                        <option value="{{stud.status}}"  selected="">{{stud.status}}</option>
+																		<option value="promoted">Promoted</option>
+																		<option value="passout">Pass Out</option>
+																		<option value="dropout">Drop Out</option>
+																	</select>
+                                                                </div>
+                                                                
+                                                               
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class=s"col-lg-12">
+                                                                <div class="payment-adress">
+                                                                    <div class="modal-area-button">
+                                                                            <a class="Information Information-color mg-b-10" href="#" data-toggle="modal" data-target="#InformationproModalalert"><span><i class="fa fa-edit"></i></span> Update</a>
+                                                                    </div>
+                                                                    <div id="InformationproModalalert" class="modal modal-edu-general fullwidth-popup-InformationproModal fade" role="dialog">
+                                                                        <div class="modal-dialog">
+                                                                            <div class="modal-content">
+                                                                                <div class="modal-close-area modal-close-df">
+                                                                                    <a class="close" data-dismiss="modal" href="#"><i class="fa fa-close"></i></a>
+                                                                                </div>
+                                                                                <div class="modal-body">
+                                                                                    <span class="educate-icon educate-info modal-check-pro information-icon-pro"> </span>
+                                                                                    <h2>Update!</h2>
+                                                                                    <p>Do You Want to Update {{stud.name}} Profile ?</p>
+                                                                                </div>
+                                                                                <div class="modal-footer info-md">
+                                                                                    <a data-dismiss="modal" href="#"><button>Cancel</button></a>
+                                                                                    <a ><button type="submit">Process</button></a>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        {% endif %}
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product-tab-list tab-pane fade" id="reviews">
+                                    <div class="row">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <div class="review-content-section">
+                                                <div class="row">
+                                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                        <div class="devit-card-custom">
+                                                            <div class="form-group">
+                                                                <input type="text" class="form-control" placeholder="Email" value="Admin@gmail.com">
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <input type="number" class="form-control" placeholder="Phone" value="01962067309">
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <input type="password" class="form-control" placeholder="Password" value="#123#123">
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <input type="password" class="form-control" placeholder="Confirm Password" value="#123#123">
+                                                            </div>
+                                                            <a href="#!" class="btn btn-primary waves-effect waves-light">Submit</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product-tab-list tab-pane fade" id="INFORMATION">
+                                    <div class="row">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <div class="review-content-section">
+												<div class="row">
+													<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+														<div class="devit-card-custom">
+															<div class="form-group">
+																<input type="url" class="form-control" placeholder="Facebook URL" value="http://www.facebook.com">
+															</div>
+															<div class="form-group">
+																<input type="url" class="form-control" placeholder="Twitter URL" value="http://www.twitter.com">
+															</div>
+															<div class="form-group">
+																<input type="url" class="form-control" placeholder="Google Plus" value="http://www.google-plus.com">
+															</div>
+															<div class="form-group">
+																<input type="url" class="form-control" placeholder="Linkedin URL" value="http://www.Linkedin.com">
+															</div>
+															<button type="submit" class="btn btn-primary waves-effect waves-light">Submit</button>
+														</div>
+													</div>
+												</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endblock %}

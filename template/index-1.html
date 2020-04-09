@@ -1,0 +1,312 @@
+
+
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static from staticfiles %}
+            <!-- Mobile Menu end -->
+            <div class="breadcome-area">
+                
+            </div>
+        </div>
+        <div class="analytics-sparkle-area" style="padding-top: 20px;">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                        <div class="analytics-sparkle-line reso-mg-b-30">
+                            <div class="analytics-content">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"> 
+                                        <h5>Students</h5>
+                                        <h2><span class="counter">{{studs}}</span> </h2>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                         <a href="{% url 'all-students' %}" ><img src="{% static 'img/profile/students.png' %}" alt=""  style="width:180px;height:100px;"></a>
+                                    </div> 
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"> 
+                                        <div class="progress m-b-0">
+                                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%;"> <span class="sr-only">230% Complete</span> </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">  
+                        <div class="analytics-sparkle-line reso-mg-b-30"> 
+                            <div class="analytics-content">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"> 
+                                        <h5>Teachers</h5>
+                                        <h2><span class="counter">{{profs}}</span> </h2>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                         <a href="{% url 'all-professors' %}" ><img src="{% static 'img/profile/professor.png' %}" alt=""  style="width:150px;height:100px;"></a>
+                                    </div> 
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"> 
+                                        <div class="progress m-b-0">
+                                            <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%;"> <span class="sr-only">230% Complete</span> </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>  
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                        <div class="analytics-sparkle-line reso-mg-b-30 table-mg-t-pro dk-res-t-pro-30">
+                            <div class="analytics-content">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"> 
+                                        <h5>Classes</h5>
+                                        <h2><span class="counter">{{total_class}}</span> </h2>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                         <a href="{% url 'all-courses' %}" ><img src="{% static 'img/profile/classes.png' %}" alt=""  style="width:150px;height:100px;"></a>
+                                    </div> 
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"> 
+                                        <div class="progress m-b-0">
+                                            <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%;"> <span class="sr-only">230% Complete</span> </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                        <div class="analytics-sparkle-line table-mg-t-pro dk-res-t-pro-30">
+                            <div class="analytics-content">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"> 
+                                        <h5>Other Staff</h5>
+                                        <h2><span class="counter">{{total_class}}</span> </h2>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                         <a href="#" ><img src="{% static 'img/profile/non-teaching.png' %}" alt=""  style="width:150px;height:100px;"></a>
+                                    </div> 
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"> 
+                                        <div class="progress m-b-0">
+                                            <div class="progress-bar progress-bar-inverse" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%;"> <span class="sr-only">230% Complete</span> </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="library-book-area mg-t-30">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                        <div class="single-cards-item">
+                            <div class="single-product-image">
+                                
+                                <a href="#"><img src="{% static 'img/product/profile-bg.jpg' %}" style="width:750px;height:120px;"  alt=""></a>
+                                
+                            </div>
+                            <div class="single-product-text">
+                                {% if profile.image != None %}
+                                <img src="{{profile.image.url}}"  alt="">
+                                {% else %}
+                                <img src="{% static 'img/profile/profile.png' %}"  alt="">
+                                {% endif %}
+                                <h4><a class="cards-hd-dn" href="#">{{user.first_name}} {{user.last_name}}</a></h4>
+                                <h5>{{profile.school_name}} ( {{profile.school_code}} )</h5>
+                                <p class="ctn-cards">Lorem ipsum dolor sit amet, this is a consectetur adipisicing elit</p>
+                                <a class="zoomInDown mg-t follow-cards" href="#" data-toggle="modal" data-target="#zoomInDown1" href="#">Update Profile</a>
+                                <div id="zoomInDown1" class="modal modal-edu-general modal-zoomInDown fade" role="dialog">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-close-area modal-close-df">
+                                                <a class="close" data-dismiss="modal" href="#"><i class="fa fa-close"></i></a>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="modal-login-form-inner">
+                                                    
+                                                    <div class="row">
+                                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                            <div class="basic-login-inner modal-basic-inner">
+                                                                <h3>Update Profile</h3>
+                                                                <p>You Can Update Your Profile</p>
+                                                                <form method="POST" action="{% url 'home' user.username %}"  enctype="multipart/form-data">{% csrf_token %}
+                                                                    <div class="form-group-inner">
+                                                                        <div class="row">
+                                                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                                <label class="login2">First Name</label>
+                                                                            </div>
+                                                                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                                                                                <input type="text" name="first_name" value="{{user.first_name}}" class="form-control" placeholder="Enter First Name" required />
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group-inner">
+                                                                        <div class="row">
+                                                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                                <label class="login2">Last Name</label>
+                                                                            </div>
+                                                                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                                                                                <input type="text"  name="last_name" value="{{user.last_name}}" class="form-control" placeholder="Enter Last Name" required/>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group-inner">
+                                                                        <div class="row">
+                                                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                                <label class="login2">Username</label>
+                                                                            </div>
+                                                                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                                                                                <input type="text"  name="username" value="{{user.username}}" class="form-control" placeholder="Enter Username" required/>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group-inner">
+                                                                        <div class="row">
+                                                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                                <label class="login2">School Name</label>
+                                                                            </div>
+                                                                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                                                                                <input type="text"  name="school_name" value="{{profile.school_name}}" class="form-control" placeholder="Enter School Name" required/>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group-inner">
+                                                                        <div class="row">
+                                                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                                <label class="login2">School code</label>
+                                                                            </div>
+                                                                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                                                                                <input type="text"  name="school_code" value="{{profile.school_code}}" class="form-control" placeholder="Enter School Code" required/>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group-inner">
+                                                                        <div class="row">
+                                                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                                <label class="login2">School Category</label>
+                                                                            </div>
+                                                                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                                                                                <input type="text"  name="school_category" value="{{profile.school_category}}" class="form-control" placeholder="Enter School Category" required/>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group-inner">
+                                                                        <div class="row">
+                                                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                                <label class="login2">School Address</label>
+                                                                            </div>
+                                                                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                                                                                <input type="text"  name="school_address" value="{{profile.school_address}}" class="form-control" placeholder="Enter School Address" required/>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group-inner">
+                                                                        <div class="row">
+                                                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                                <label class="login2">Profile Image</label>
+                                                                            </div>
+                                                                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                                                                                <div class="file-upload-inner ts-forms">
+                                                                                    <div class="input prepend-small-btn">
+                                                                                        <label class="icon-right" for="prepend-small-btn">
+                                                                                                <i class="fa fa-download"></i>
+                                                                                            </label>
+                                                                                        <div class="file-button">
+                                                                                            Browse
+                                                                                            <input type="file" onchange="document.getElementById('prepend-small-btn').value = this.value;" name='image'>
+                                                                                        </div>
+                                                                                        <input type="text" id="prepend-small-btn"  placeholder="no file selected">
+                                                                                        
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    
+                                                                    <div class="login-btn-inner">
+                                                                        
+                                                                        <div class="row">
+                                                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12"></div>
+                                                                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                                                                                <div class="login-horizental">
+                                                                                    <button class="btn btn-sm btn-primary login-submit-cs" type="submit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Update</button>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <div class="cards-dtn">
+                                            <h3><span class="counter">199</span></h3>
+                                            <p>Articles</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <div class="cards-dtn">
+                                            <h3><span class="counter">599</span></h3>
+                                            <p>Like</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <div class="cards-dtn">
+                                            <h3><span class="counter">399</span></h3>
+                                            <p>Comment</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        <div class="single-review-st-item res-mg-t-30 table-mg-t-pro-n" style=" overflow-y: scroll; height: 400px;">
+                            <div class="single-review-st-hd" >
+                                <h2>SEF Schools</h2>
+                            </div>
+                            
+                                {% for school in schools %}
+                                <div class="single-review-st-text">
+                                    {% if school.image != None %}
+                                    <img src="{{school.image.url}}" alt="">
+                                    {% else %}
+                                    <img src="{% static 'img/profile/profile.png' %}" alt="">
+                                    {% endif %}
+                                    <div class="review-ctn-hf">
+                                        <h3>{{school.school_name}}</h3>
+                                        <p>{{school.school_code}}</p>
+                                    </div>
+                                    <div class="review-item-rating">
+                                        <i class="educate-icon educate-star"></i>
+                                        <i class="educate-icon educate-star"></i>
+                                        <i class="educate-icon educate-star"></i>
+                                        <i class="educate-icon educate-star"></i>
+                                        <i class="educate-icon educate-star-half"></i>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        
+    {% endblock %}
